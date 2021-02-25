@@ -11,7 +11,6 @@ import (
 )
 
 func main() {
-	fmt.Println("Hello, i'm client")
 	conn, err := grpc.Dial("localhost:50051", grpc.WithInsecure())
 	if err != nil {
 		log.Fatalf("Couldn't connect: %v", err)
@@ -19,7 +18,7 @@ func main() {
 	defer conn.Close()
 	c := greetpb.NewCalculatorServiceClient(conn)
 	//PrintPrimeResponses(120, c)
-	PrintAverage([]int32{1, 2, 3, 4, 5}, c)
+	PrintAverage([]int32{1, 2, 3, 4, 5, 6}, c)
 }
 
 func PrintPrimeResponses(n int32, c greetpb.CalculatorServiceClient) {
